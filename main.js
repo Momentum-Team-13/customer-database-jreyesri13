@@ -51,7 +51,7 @@ for (let customer of customers) {
 
     let dobElement = document.createElement('h1')
     dobElement.classList.add("5", "f4-ns", "mv0")
-    let birthday = moment(customer.dob.date).format('MMM Do, YYYY')
+    let birthday = moment(customer.dob.date).format('MMM DD, YYYY')
     dobElement.innerText = `DOB: ${birthday}`
     contentElement.appendChild(dobElement)
 
@@ -60,7 +60,8 @@ for (let customer of customers) {
 
     let registeredElement = document.createElement('h1')
     registeredElement.classList.add("5", "f4-ns", "mv0")
-    registeredElement.innerText = `Customer since: ${customer.registered.date}`
+    let registerDate = moment(customer.registered.date).format('MMM DD, YYYY')
+    registeredElement.innerText = `Customer since: ${registerDate}`
     contentElement.appendChild(registeredElement)
 
     customerList.appendChild(registeredElement)
