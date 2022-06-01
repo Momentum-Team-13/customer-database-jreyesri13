@@ -13,7 +13,7 @@ for (let customer of customers) {
 
 
     let imageElement = document.createElement('img')
-    imageElement.src = customer.picture.medium
+    imageElement.src = customer.picture.large
     imageElement.alt = 'image of customer'
     // imageElement.classList.add("db", "w-100", "br2", "br--top")
     contentElement.appendChild(imageElement)
@@ -51,7 +51,8 @@ for (let customer of customers) {
 
     let dobElement = document.createElement('h1')
     dobElement.classList.add("5", "f4-ns", "mv0")
-    dobElement.innerText = `DOB: ${customer.dob.date}`
+    let birthday = moment(customer.dob.date).format('MMM Do, YYYY')
+    dobElement.innerText = `DOB: ${birthday}`
     contentElement.appendChild(dobElement)
 
     customerList.appendChild(dobElement)
