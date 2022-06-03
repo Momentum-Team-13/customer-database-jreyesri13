@@ -1,3 +1,18 @@
+div {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+}
+
 #customer-list {
-    border: 2px solid rgb(28, 100, 208);
+    /* border: 2px solid rgb(28, 100, 208); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-radius: 50% 75%;
 }

@@ -49,12 +49,19 @@ for (let customer of customers) {
     customerElement.appendChild(emailElement)
 
 
-    // Add the location
-    let locationElement = document.createElement('h2')
-    locationElement.classList.add("5", "f4-ns", "mv0")
+    // Add the location (part 1)
+    let locationElement1 = document.createElement('h2')
+    locationElement1.classList.add("5", "f4-ns", "mv0")
+    locationElement1.innerText = `${customer.location.street.number} ${customer.location.street.name},`
+    customerElement.appendChild(locationElement1)
+
+
+    // Add the location (part 2)
+    let locationElement2 = document.createElement('h2')
+    locationElement2.classList.add("5", "f4-ns", "mv0")
     let stateAbbr = stateNameToAbbr(customer.location.state)
-    locationElement.innerText = `${customer.location.street.number} ${customer.location.street.name}, ${customer.location.city}, ${stateAbbr} ${customer.location.postcode}`
-    customerElement.appendChild(locationElement)
+    locationElement2.innerText = `${customer.location.city}, ${stateAbbr} ${customer.location.postcode}`
+    customerElement.appendChild(locationElement2)
 
 
     // Add the birthday
