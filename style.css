@@ -1,18 +1,28 @@
-div {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
-}
-
 #customer-list {
     /* border: 2px solid rgb(28, 100, 208); */
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    /* align-content: center; */
+}
+
+.customer {
+    /* Need to Center items, with flex? */
+    width: 250px;
+    height: 300px;
 }
 
 img {
     border-radius: 50% 75%;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.emailStyle {
+    color: gray;
 }
