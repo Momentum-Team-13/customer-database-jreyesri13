@@ -7,6 +7,20 @@ function titleCase(words) {
     return words.charAt(0).toUpperCase() + words.substr(1).toLowerCase()
 }
 
+// State name to abbreviation
+function stateNameToAbbr (stateName) {
+    const idx = usStates.findIndex(function (state) {
+      return state.name === stateName.toUpperCase()
+    })
+  
+    if (idx === -1) {
+      return null
+    }
+  
+    return usStates[idx].abbreviation
+  }
+
+
 for (let customer of customers) {
     let customerElement = document.createElement('div')
     customerElement.classList.add('customer')
@@ -26,44 +40,36 @@ for (let customer of customers) {
     customerElement.appendChild(nameElement)
 
 
+    // Add the email
     let emailElement = document.createElement('h2')
     emailElement.classList.add("5", "f4-ns", "mv0")
     emailElement.innerText = `${customer.email}`
     customerElement.appendChild(emailElement)
 
 
-    // customerList.appendChild(emailElement)
-    // // customerList.appendChild(customerElement)
+    // Add the location
+    let locationElement = document.createElement('h2')
+    locationElement.classList.add("5", "f4-ns", "mv0")
+    let stateAbbr = stateNameToAbbr(customer.location.state)
+    locationElement.innerText = `${customer.location.street.number} ${customer.location.street.name}, ${customer.location.city}, ${stateAbbr} ${customer.location.postcode}`
+    customerElement.appendChild(locationElement)
 
-    // let locationElement = document.createElement('h1')
-    // locationElement.classList.add("5", "f4-ns", "mv0")
-    // locationElement.innerText = `Location: ${customer.location.street.number} ${customer.location.street.name} ${customer.location.city}, ${customer.location.state} ${customer.location.postcode}`
-    // contentElement.appendChild(locationElement)
 
-    // customerList.appendChild(locationElement)
-    // // customerList.appendChild(customerElement)
+    // Add the birthday
+    let dobElement = document.createElement('h2')
+    dobElement.classList.add("5", "f4-ns", "mv0")
+    let birthday = moment(customer.dob.date).format('MMM DD, YYYY')
+    dobElement.innerText = `DOB: ${birthday}`
+    customerElement.appendChild(dobElement)
 
-    // let dobElement = document.createElement('h1')
-    // dobElement.classList.add("5", "f4-ns", "mv0")
-    // let birthday = moment(customer.dob.date).format('MMM DD, YYYY')
-    // dobElement.innerText = `DOB: ${birthday}`
-    // contentElement.appendChild(dobElement)
 
-    // customerList.appendChild(dobElement)
-    // // customerList.appendChild(customerElement)
-
-    // let registeredElement = document.createElement('h1')
-    // registeredElement.classList.add("5", "f4-ns", "mv0")
-    // let registerDate = moment(customer.registered.date).format('MMM DD, YYYY')
-    // registeredElement.innerText = `Customer since: ${registerDate}`
-    // contentElement.appendChild(registeredElement)
-
-    // customerList.appendChild(registeredElement)
-    
-    
+    // Add the registered date
+    let registeredElement = document.createElement('h1')
+    registeredElement.classList.add("5", "f4-ns", "mv0")
+    let registerDate = moment(customer.registered.date).format('MMM DD, YYYY')
+    registeredElement.innerText = `Customer since: ${registerDate}`
+    customerElement.appendChild(registeredElement)
     
     
     customerList.appendChild(customerElement)
-
-
 }
