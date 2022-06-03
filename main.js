@@ -2,23 +2,25 @@ console.log(customers)
 
 const customerList = document.querySelector('#customer-list')
 
+
 // Make words a title case
 function titleCase(words) {
     return words.charAt(0).toUpperCase() + words.substr(1).toLowerCase()
 }
 
+
 // State name to abbreviation
-function stateNameToAbbr (stateName) {
+function stateNameToAbbr(stateName) {
     const idx = usStates.findIndex(function (state) {
-      return state.name === stateName.toUpperCase()
+        return state.name === stateName.toUpperCase()
     })
-  
+
     if (idx === -1) {
-      return null
+        return null
     }
-  
+
     return usStates[idx].abbreviation
-  }
+}
 
 
 for (let customer of customers) {
@@ -69,7 +71,7 @@ for (let customer of customers) {
     let registerDate = moment(customer.registered.date).format('MMM DD, YYYY')
     registeredElement.innerText = `Customer since: ${registerDate}`
     customerElement.appendChild(registeredElement)
-    
-    
+
+
     customerList.appendChild(customerElement)
 }
